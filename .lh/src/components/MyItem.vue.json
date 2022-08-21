@@ -1,0 +1,278 @@
+{
+    "sourceFile": "src/components/MyItem.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 65,
+            "patches": [
+                {
+                    "date": 1660877221048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1660877287243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \t\t<button class=\"btn btn-danger\">删除</button>\r\n \t</li>\r\n </template>\r\n \r\n-<script lang=\"ts\">\r\n+<script setup lang=\"ts\">\r\n \texport default {\r\n \t\r\n \t}\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660877304652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,9 @@\n \t</li>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n-\texport default {\r\n \t\r\n-\t}\r\n </script>\r\n \r\n <style scoped>\r\n \t/*item*/\r\n"
+                },
+                {
+                    "date": 1660879663751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" />\r\n \t\t\t<!-- 如下代码也能实现功能，但是不太推荐，因为有点违反原则，因为修改了props -->\r\n \t\t\t<!-- <input type=\"checkbox\" v-model=\"todo.done\"/> -->\r\n-\t\t\t<span></span>\r\n+\t\t\t<span>s</span>\r\n \t\t</label>\r\n \t\t<button class=\"btn btn-danger\">删除</button>\r\n \t</li>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1660879874555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,60 +1,61 @@\n <template>\r\n \t<li>\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" />\r\n-\t\t\t<!-- 如下代码也能实现功能，但是不太推荐，因为有点违反原则，因为修改了props -->\r\n-\t\t\t<!-- <input type=\"checkbox\" v-model=\"todo.done\"/> -->\r\n-\t\t\t<span>s</span>\r\n+\t\t\t<span>xxxx</span>\r\n \t\t</label>\r\n-\t\t<button class=\"btn btn-danger\">删除</button>\r\n+\t\t<button class=\"btn btn-danger\" >删除</button>\r\n \t</li>\r\n </template>\r\n \r\n-<script setup lang=\"ts\">\r\n-\t\r\n+<script lang=\"ts\">\r\n+import { defineComponent } from \"vue\";\r\n+export default defineComponent({\r\n+\tname: 'MyItem',\r\n+})\r\n </script>\r\n \r\n <style scoped>\r\n-\t/*item*/\r\n-\tli {\r\n-\t\tlist-style: none;\r\n-\t\theight: 36px;\r\n-\t\tline-height: 36px;\r\n-\t\tpadding: 0 5px;\r\n-\t\tborder-bottom: 1px solid #ddd;\r\n-\t}\r\n+/*item*/\r\n+li {\r\n+\tlist-style: none;\r\n+\theight: 36px;\r\n+\tline-height: 36px;\r\n+\tpadding: 0 5px;\r\n+\tborder-bottom: 1px solid #ddd;\r\n+}\r\n \r\n-\tli label {\r\n-\t\tfloat: left;\r\n-\t\tcursor: pointer;\r\n-\t}\r\n+li label {\r\n+\tfloat: left;\r\n+\tcursor: pointer;\r\n+}\r\n \r\n-\tli label li input {\r\n-\t\tvertical-align: middle;\r\n-\t\tmargin-right: 6px;\r\n-\t\tposition: relative;\r\n-\t\ttop: -1px;\r\n-\t}\r\n+li label li input {\r\n+\tvertical-align: middle;\r\n+\tmargin-right: 6px;\r\n+\tposition: relative;\r\n+\ttop: -1px;\r\n+}\r\n \r\n-\tli button {\r\n-\t\tfloat: right;\r\n-\t\tdisplay: none;\r\n-\t\tmargin-top: 3px;\r\n-\t}\r\n+li button {\r\n+\tfloat: right;\r\n+\tdisplay: none;\r\n+\tmargin-top: 3px;\r\n+}\r\n \r\n-\tli:before {\r\n-\t\tcontent: initial;\r\n-\t}\r\n+li:before {\r\n+\tcontent: initial;\r\n+}\r\n \r\n-\tli:last-child {\r\n-\t\tborder-bottom: none;\r\n-\t}\r\n+li:last-child {\r\n+\tborder-bottom: none;\r\n+}\r\n \r\n-\tli:hover{\r\n-\t\tbackground-color: #ddd;\r\n-\t}\r\n-\t\r\n-\tli:hover button{\r\n-\t\tdisplay: block;\r\n-\t}\r\n+li:hover {\r\n+\tbackground-color: #ddd;\r\n+}\r\n+\r\n+li:hover button {\r\n+\tdisplay: block;\r\n+}\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1660879952980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n <script lang=\"ts\">\r\n import { defineComponent } from \"vue\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n+\tprops:['todo']\r\n })\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1660879965479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n \t<li>\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" />\r\n-\t\t\t<span>xxxx</span>\r\n+\t\t\t<span>{{todo.title}}</span>\r\n \t\t</label>\r\n \t\t<button class=\"btn btn-danger\" >删除</button>\r\n \t</li>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1660880051174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n <script lang=\"ts\">\r\n import { defineComponent } from \"vue\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n-\tprops:['todo']\r\n+\tprops:['todos']\r\n })\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1660880060652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n \t<li>\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" />\r\n-\t\t\t<span>{{todo.title}}</span>\r\n+\t\t\t<span></span>\r\n \t\t</label>\r\n \t\t<button class=\"btn btn-danger\" >删除</button>\r\n \t</li>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1660880097069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n-\t<li>\r\n+\t<li v-for=\"(todo,index) in todos\" :key=\"todo.id\">\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" />\r\n-\t\t\t<span></span>\r\n+\t\t\t<span>{{todo.title}}</span>\r\n \t\t</label>\r\n \t\t<button class=\"btn btn-danger\" >删除</button>\r\n \t</li>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1660880637539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,17 @@\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n-import { defineComponent } from \"vue\";\r\n+import { defineComponent,inject } from \"vue\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n-\tprops:['todos']\r\n+\tsetup(){\r\n+\t\tlet todos = inject('todos')\r\n+\t\treturn{\r\n+\t\t\ttodos\r\n+\t\t}\r\n+\t}\r\n })\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1660880779756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,11 @@\n import { defineComponent,inject } from \"vue\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tsetup(){\r\n-\t\tlet todos = inject('todos')\r\n+\t\tconst todos = inject('todos')\r\n+\t\tconsole.log(todos);\r\n+\t\t\r\n \t\treturn{\r\n \t\t\ttodos\r\n \t\t}\r\n \t}\r\n"
+                },
+                {
+                    "date": 1660880832412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tsetup(){\r\n \t\tconst todos = inject('todos')\r\n-\t\tconsole.log(todos);\r\n+\t\tconsole.log(todos,'todos');\r\n \t\t\r\n \t\treturn{\r\n \t\t\ttodos\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1660881098043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-\t<li v-for=\"(todo,index) in todos\" :key=\"todo.id\">\r\n+\t<li v-for=\"todo in todos\" :key=\"todo.id\">\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" />\r\n \t\t\t<span>{{todo.title}}</span>\r\n \t\t</label>\r\n@@ -8,17 +8,21 @@\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n+import { reactive } from \"@vue/reactivity\";\r\n import { defineComponent,inject } from \"vue\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tsetup(){\r\n-\t\tconst todos = inject('todos')\r\n-\t\tconsole.log(todos,'todos');\r\n+\t\tconst state = reactive<{ todos: Todo[] }>({\r\n+\t\t\ttodos: inject('todos')\r\n+\t\t})\r\n \t\t\r\n+\t\tconsole.log(state.todos,'todos');\r\n+\t\t\r\n \t\treturn{\r\n-\t\t\ttodos\r\n+\t\t\tstate,\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660881137697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,13 +16,13 @@\n \tsetup(){\r\n \t\tconst state = reactive<{ todos: Todo[] }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n-\t\t\r\n+\t\tconst todos = state.todos\r\n \t\tconsole.log(state.todos,'todos');\r\n \t\t\r\n \t\treturn{\r\n-\t\t\tstate,\r\n+\t\t\tstate,todos\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660881146289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \t\tconst state = reactive<{ todos: Todo[] }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n-\t\tconsole.log(state.todos,'todos');\r\n+\t\tconsole.log(todos,'todos');\r\n \t\t\r\n \t\treturn{\r\n \t\t\tstate,todos\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1660881162535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n \r\n <script lang=\"ts\">\r\n import { reactive } from \"@vue/reactivity\";\r\n import { defineComponent,inject } from \"vue\";\r\n+import { Todo } from \"./types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tsetup(){\r\n \t\tconst state = reactive<{ todos: Todo[] }>({\r\n"
+                },
+                {
+                    "date": 1660881202376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,13 +10,13 @@\n \r\n <script lang=\"ts\">\r\n import { reactive } from \"@vue/reactivity\";\r\n import { defineComponent,inject } from \"vue\";\r\n-import { Todo } from \"./types/todo\";\r\n+import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tsetup(){\r\n-\t\tconst state = reactive<{ todos: Todo[] }>({\r\n+\t\tconst state = reactive<{ todos: Todo[] |undefined}>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n \t\tconsole.log(todos,'todos');\r\n"
+                },
+                {
+                    "date": 1660881609072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,12 +14,14 @@\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tsetup(){\r\n-\t\tconst state = reactive<{ todos: Todo[] |undefined}>({\r\n+\t\t/* const state = reactive<{ todos: Todo[] |undefined}>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n-\t\tconst todos = state.todos\r\n+\t\tconst todos = state.todos */\r\n+\t\tlet todos = reactive<Todo[]>(null)\r\n+\t\ttodos = inject('todos')\r\n \t\tconsole.log(todos,'todos');\r\n \t\t\r\n \t\treturn{\r\n \t\t\tstate,todos\r\n"
+                },
+                {
+                    "date": 1660886109387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \t\t/* const state = reactive<{ todos: Todo[] |undefined}>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos */\r\n-\t\tlet todos = reactive<Todo[]>(null)\r\n+\t\tlet todos = reactive<Todo | undefined>(null)\r\n \t\ttodos = inject('todos')\r\n \t\tconsole.log(todos,'todos');\r\n \t\t\r\n \t\treturn{\r\n"
+                },
+                {
+                    "date": 1660886119351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \t\ttodos = inject('todos')\r\n \t\tconsole.log(todos,'todos');\r\n \t\t\r\n \t\treturn{\r\n-\t\t\tstate,todos\r\n+\t\t\ttodos\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660886295440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \t\t/* const state = reactive<{ todos: Todo[] |undefined}>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos */\r\n-\t\tlet todos = reactive<Todo | undefined>(null)\r\n+\t\tlet todos = reactive<Todo | string>('暂无')\r\n \t\ttodos = inject('todos')\r\n \t\tconsole.log(todos,'todos');\r\n \t\t\r\n \t\treturn{\r\n"
+                },
+                {
+                    "date": 1660886933752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,31 +1,31 @@\n <template>\r\n \t<li v-for=\"todo in todos\" :key=\"todo.id\">\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" />\r\n-\t\t\t<span>{{todo.title}}</span>\r\n+\t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n-\t\t<button class=\"btn btn-danger\" >删除</button>\r\n+\t\t<button class=\"btn btn-danger\">删除</button>\r\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n import { reactive } from \"@vue/reactivity\";\r\n-import { defineComponent,inject } from \"vue\";\r\n+import { defineComponent, inject } from \"vue\";\r\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n-\tsetup(){\r\n-\t\t/* const state = reactive<{ todos: Todo[] |undefined}>({\r\n+\tsetup() {\r\n+\t\tconst state = reactive<{ todos: Todo[] | undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n-\t\tconst todos = state.todos */\r\n-\t\tlet todos = reactive<Todo | string>('暂无')\r\n+\t\tconst todos = state.todos\r\n+\t\t/* let todos = reactive<Todo>(null)\r\n \t\ttodos = inject('todos')\r\n-\t\tconsole.log(todos,'todos');\r\n-\t\t\r\n-\t\treturn{\r\n-\t\t\ttodos\r\n+\t\tconsole.log(todos,'todos'); */\r\n+\r\n+\t\treturn {\r\n+\t\t\tstate, todos\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660887838542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,18 +8,18 @@\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n-import { reactive } from \"@vue/reactivity\";\r\n+import { reactive.toRefs } from \"@vue/reactivity\";\r\n import { defineComponent, inject } from \"vue\";\r\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tsetup() {\r\n-\t\tconst state = reactive<{ todos: Todo[] | undefined }>({\r\n+\t\tconst state= reactive<{ todos: Todo[]| undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n-\t\tconst todos = state.todos\r\n+\t\t//const todos = state.todos\r\n \t\t/* let todos = reactive<Todo>(null)\r\n \t\ttodos = inject('todos')\r\n \t\tconsole.log(todos,'todos'); */\r\n \r\n"
+                },
+                {
+                    "date": 1660887844938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n-import { reactive.toRefs } from \"@vue/reactivity\";\r\n+import { reactive} from \"@vue/reactivity\";\r\n import { defineComponent, inject } from \"vue\";\r\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n"
+                },
+                {
+                    "date": 1660887859457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \tsetup() {\r\n \t\tconst state= reactive<{ todos: Todo[]| undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n-\t\t//const todos = state.todos\r\n+\t\t todos = state.todos\r\n \t\t/* let todos = reactive<Todo>(null)\r\n \t\ttodos = inject('todos')\r\n \t\tconsole.log(todos,'todos'); */\r\n \r\n"
+                },
+                {
+                    "date": 1660887891439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \tsetup() {\r\n \t\tconst state= reactive<{ todos: Todo[]| undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n-\t\t todos = state.todos\r\n+\t\tconst todos = state.todos\r\n \t\t/* let todos = reactive<Todo>(null)\r\n \t\ttodos = inject('todos')\r\n \t\tconsole.log(todos,'todos'); */\r\n \r\n"
+                },
+                {
+                    "date": 1660888043224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n \t<li v-for=\"todo in todos\" :key=\"todo.id\">\r\n \t\t<label>\r\n-\t\t\t<input type=\"checkbox\" />\r\n+\t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n \t\t<button class=\"btn btn-danger\">删除</button>\r\n \t</li>\r\n"
+                },
+                {
+                    "date": 1660888671374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n \t<li v-for=\"todo in todos\" :key=\"todo.id\">\r\n \t\t<label>\r\n-\t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n+\t\t\t<input type=\"checkbox\" ref=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n \t\t<button class=\"btn btn-danger\">删除</button>\r\n \t</li>\r\n"
+                },
+                {
+                    "date": 1660888773123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n \t<li v-for=\"todo in todos\" :key=\"todo.id\">\r\n \t\t<label>\r\n-\t\t\t<input type=\"checkbox\" ref=\"todo.isTrue\" />\r\n+\t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n \t\t<button class=\"btn btn-danger\">删除</button>\r\n \t</li>\r\n"
+                },
+                {
+                    "date": 1660892999393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n <template>\r\n-\t<li v-for=\"todo in todos\" :key=\"todo.id\">\r\n+\t<li v-for=\"todo in todos\" :key=\"todo.id\"\r\n+\t @mouseenter=\"mouseHandler(true)\" \r\n+\t @mouseleave=\"mouseHandler(false)\"\r\n+\t :style=\"{backgroundColor:bgColor,color:myColor}\">\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n@@ -8,24 +11,31 @@\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n-import { reactive} from \"@vue/reactivity\";\r\n+import { reactive,ref} from \"@vue/reactivity\";\r\n import { defineComponent, inject } from \"vue\";\r\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tsetup() {\r\n+\t\t//传来的数据\r\n \t\tconst state= reactive<{ todos: Todo[]| undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n-\t\t/* let todos = reactive<Todo>(null)\r\n-\t\ttodos = inject('todos')\r\n-\t\tconsole.log(todos,'todos'); */\r\n-\r\n+\t\t\r\n+        //鼠标移入移出改变颜色\r\n+\t\tconst bgColor = ref('white')\r\n+\t\tconst myColor = ref('gray')\r\n+        const mouseHandler = (flag:boolean)=>{\r\n+          if(flag){\r\n+\t\t\t//鼠标进入\r\n+           bgColor.value = 'pink'\r\n+\t\t  }\r\n+\t\t}\r\n \t\treturn {\r\n-\t\t\tstate, todos\r\n+\t\t\tstate, todos,mouseHandler,bgColor,myColor\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n@@ -65,11 +75,11 @@\n li:last-child {\r\n \tborder-bottom: none;\r\n }\r\n \r\n-li:hover {\r\n+/* li:hover {\r\n \tbackground-color: #ddd;\r\n-}\r\n+} */\r\n \r\n li:hover button {\r\n \tdisplay: block;\r\n }\r\n"
+                },
+                {
+                    "date": 1660893115191,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,13 +25,17 @@\n \t\tconst todos = state.todos\r\n \t\t\r\n         //鼠标移入移出改变颜色\r\n \t\tconst bgColor = ref('white')\r\n-\t\tconst myColor = ref('gray')\r\n+\t\tconst myColor = ref('black')\r\n         const mouseHandler = (flag:boolean)=>{\r\n           if(flag){\r\n \t\t\t//鼠标进入\r\n            bgColor.value = 'pink'\r\n+\t\t   myColor.value = 'green'\r\n+\t\t  }else{\r\n+\t\t\tbgColor.value = 'white'\r\n+\t\t   myColor.value = 'black'\r\n \t\t  }\r\n \t\t}\r\n \t\treturn {\r\n \t\t\tstate, todos,mouseHandler,bgColor,myColor\r\n"
+                },
+                {
+                    "date": 1660893184260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n \t<li v-for=\"todo in todos\" :key=\"todo.id\"\r\n \t @mouseenter=\"mouseHandler(true)\" \r\n \t @mouseleave=\"mouseHandler(false)\"\r\n-\t :style=\"{backgroundColor:bgColor,color:myColor}\">\r\n+\t :style=\"{backgroundColor:bgColor;color:myColor}\">\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n"
+                },
+                {
+                    "date": 1660893200033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n \t<li v-for=\"todo in todos\" :key=\"todo.id\"\r\n \t @mouseenter=\"mouseHandler(true)\" \r\n \t @mouseleave=\"mouseHandler(false)\"\r\n-\t :style=\"{backgroundColor:bgColor;color:myColor}\">\r\n+\t :style=\"{backgroundColor:bgColor,color:myColor}\">\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n"
+                },
+                {
+                    "date": 1660893349771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,10 @@\n           if(flag){\r\n \t\t\t//鼠标进入\r\n            bgColor.value = 'pink'\r\n \t\t   myColor.value = 'green'\r\n+\t\t   console.log('移入了');\r\n+\t\t   \r\n \t\t  }else{\r\n \t\t\tbgColor.value = 'white'\r\n \t\t   myColor.value = 'black'\r\n \t\t  }\r\n"
+                },
+                {
+                    "date": 1660893363166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,10 @@\n \t\t   \r\n \t\t  }else{\r\n \t\t\tbgColor.value = 'white'\r\n \t\t   myColor.value = 'black'\r\n+\t\t   console.log('移出了');\r\n+\t\t   \r\n \t\t  }\r\n \t\t}\r\n \t\treturn {\r\n \t\t\tstate, todos,mouseHandler,bgColor,myColor\r\n"
+                },
+                {
+                    "date": 1660893522380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n <template>\r\n-\t<li v-for=\"todo in todos\" :key=\"todo.id\"\r\n-\t @mouseenter=\"mouseHandler(true)\" \r\n-\t @mouseleave=\"mouseHandler(false)\"\r\n-\t :style=\"{backgroundColor:bgColor,color:myColor}\">\r\n+\t<li v-for=\"todo in todos\" :key=\"todo.id\" @mouseenter=\"mouseHandler(true)\" @mouseleave=\"mouseHandler(false)\"\r\n+\t\t:style=\"{ backgroundColor:'black', color: myColor }\"\r\n+\t\t>\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n@@ -11,39 +10,39 @@\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n-import { reactive,ref} from \"@vue/reactivity\";\r\n+import { reactive, ref } from \"@vue/reactivity\";\r\n import { defineComponent, inject } from \"vue\";\r\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tsetup() {\r\n \t\t//传来的数据\r\n-\t\tconst state= reactive<{ todos: Todo[]| undefined }>({\r\n+\t\tconst state = reactive<{ todos: Todo[] | undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n-\t\t\r\n-        //鼠标移入移出改变颜色\r\n+\r\n+\t\t//鼠标移入移出改变颜色\r\n \t\tconst bgColor = ref('white')\r\n \t\tconst myColor = ref('black')\r\n-        const mouseHandler = (flag:boolean)=>{\r\n-          if(flag){\r\n-\t\t\t//鼠标进入\r\n-           bgColor.value = 'pink'\r\n-\t\t   myColor.value = 'green'\r\n-\t\t   console.log('移入了');\r\n-\t\t   \r\n-\t\t  }else{\r\n-\t\t\tbgColor.value = 'white'\r\n-\t\t   myColor.value = 'black'\r\n-\t\t   console.log('移出了');\r\n-\t\t   \r\n-\t\t  }\r\n+\t\tconst mouseHandler = (flag: boolean) => {\r\n+\t\t\tif (flag) {\r\n+\t\t\t\t//鼠标进入\r\n+\t\t\t\tbgColor.value = 'pink'\r\n+\t\t\t\tmyColor.value = 'green'\r\n+\t\t\t\tconsole.log('移入了');\r\n+\r\n+\t\t\t} else {\r\n+\t\t\t\tbgColor.value = 'white'\r\n+\t\t\t\tmyColor.value = 'black'\r\n+\t\t\t\tconsole.log('移出了');\r\n+\r\n+\t\t\t}\r\n \t\t}\r\n \t\treturn {\r\n-\t\t\tstate, todos,mouseHandler,bgColor,myColor\r\n+\t\t\tstate, todos, mouseHandler, bgColor, myColor\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660893549631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<li v-for=\"todo in todos\" :key=\"todo.id\" @mouseenter=\"mouseHandler(true)\" @mouseleave=\"mouseHandler(false)\"\r\n-\t\t:style=\"{ backgroundColor:'black', color: myColor }\"\r\n+\t\t:style=\"{ backgroundColor: bgColor, color: myColor }\"\r\n \t\t>\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n"
+                },
+                {
+                    "date": 1660893559364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \t\tconst todos = state.todos\r\n \r\n \t\t//鼠标移入移出改变颜色\r\n \t\tconst bgColor = ref('white')\r\n-\t\tconst myColor = ref('black')\r\n+\t\tconst myColor = ref('green')\r\n \t\tconst mouseHandler = (flag: boolean) => {\r\n \t\t\tif (flag) {\r\n \t\t\t\t//鼠标进入\r\n \t\t\t\tbgColor.value = 'pink'\r\n"
+                },
+                {
+                    "date": 1660893581128,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,13 +24,13 @@\n \t\tconst todos = state.todos\r\n \r\n \t\t//鼠标移入移出改变颜色\r\n \t\tconst bgColor = ref('white')\r\n-\t\tconst myColor = ref('green')\r\n+\t\tconst myColor = ref('black')\r\n \t\tconst mouseHandler = (flag: boolean) => {\r\n \t\t\tif (flag) {\r\n \t\t\t\t//鼠标进入\r\n-\t\t\t\tbgColor.value = 'pink'\r\n+\t\t\t\tbgColor.value = 'gray'\r\n \t\t\t\tmyColor.value = 'green'\r\n \t\t\t\tconsole.log('移入了');\r\n \r\n \t\t\t} else {\r\n"
+                },
+                {
+                    "date": 1660893650518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,15 +30,12 @@\n \t\t\tif (flag) {\r\n \t\t\t\t//鼠标进入\r\n \t\t\t\tbgColor.value = 'gray'\r\n \t\t\t\tmyColor.value = 'green'\r\n-\t\t\t\tconsole.log('移入了');\r\n \r\n \t\t\t} else {\r\n \t\t\t\tbgColor.value = 'white'\r\n \t\t\t\tmyColor.value = 'black'\r\n-\t\t\t\tconsole.log('移出了');\r\n-\r\n \t\t\t}\r\n \t\t}\r\n \t\treturn {\r\n \t\t\tstate, todos, mouseHandler, bgColor, myColor\r\n"
+                },
+                {
+                    "date": 1660893813411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \t\t\t\tmyColor.value = 'black'\r\n \t\t\t}\r\n \t\t}\r\n \t\treturn {\r\n-\t\t\tstate, todos, mouseHandler, bgColor, myColor\r\n+\t\t\ttodos, mouseHandler, bgColor, myColor\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660893975247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,10 @@\n \t\t\tif (flag) {\r\n \t\t\t\t//鼠标进入\r\n \t\t\t\tbgColor.value = 'gray'\r\n \t\t\t\tmyColor.value = 'green'\r\n+\t\t\t\tconsole.log(bgColor);\r\n+\t\t\t\t\r\n \r\n \t\t\t} else {\r\n \t\t\t\tbgColor.value = 'white'\r\n \t\t\t\tmyColor.value = 'black'\r\n"
+                },
+                {
+                    "date": 1660894072935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,8 +38,10 @@\n \t\t\t\tbgColor.value = 'white'\r\n \t\t\t\tmyColor.value = 'black'\r\n \t\t\t}\r\n \t\t}\r\n+\t\tconsole.log(bgColor);\r\n+\t\t\r\n \t\treturn {\r\n \t\t\ttodos, mouseHandler, bgColor, myColor\r\n \t\t}\r\n \t}\r\n"
+                },
+                {
+                    "date": 1660894081730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,8 @@\n \t\t\t\tbgColor.value = 'white'\r\n \t\t\t\tmyColor.value = 'black'\r\n \t\t\t}\r\n \t\t}\r\n-\t\tconsole.log(bgColor);\r\n \t\t\r\n \t\treturn {\r\n \t\t\ttodos, mouseHandler, bgColor, myColor\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1660894115491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,11 +30,8 @@\n \t\t\tif (flag) {\r\n \t\t\t\t//鼠标进入\r\n \t\t\t\tbgColor.value = 'gray'\r\n \t\t\t\tmyColor.value = 'green'\r\n-\t\t\t\tconsole.log(bgColor);\r\n-\t\t\t\t\r\n-\r\n \t\t\t} else {\r\n \t\t\t\tbgColor.value = 'white'\r\n \t\t\t\tmyColor.value = 'black'\r\n \t\t\t}\r\n"
+                },
+                {
+                    "date": 1660894146856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<li v-for=\"todo in todos\" :key=\"todo.id\" @mouseenter=\"mouseHandler(true)\" @mouseleave=\"mouseHandler(false)\"\r\n-\t\t:style=\"{ backgroundColor: bgColor, color: myColor }\"\r\n+\t\t:style:any=\"{ backgroundColor: bgColor, color: myColor }\"\r\n \t\t>\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n"
+                },
+                {
+                    "date": 1660894386753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<li v-for=\"todo in todos\" :key=\"todo.id\" @mouseenter=\"mouseHandler(true)\" @mouseleave=\"mouseHandler(false)\"\r\n-\t\t:style:any=\"{ backgroundColor: bgColor, color: myColor }\"\r\n+\t\t:style=\"{ backgroundColor: bgColor, color: myColor }\"\r\n \t\t>\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n"
+                },
+                {
+                    "date": 1660894474440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n-import { reactive, ref } from \"@vue/reactivity\";\r\n+import { reactive, ref } from \"vue\";\r\n import { defineComponent, inject } from \"vue\";\r\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n"
+                },
+                {
+                    "date": 1660894638189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,6 @@\n <template>\r\n-\t<li v-for=\"todo in todos\" :key=\"todo.id\" @mouseenter=\"mouseHandler(true)\" @mouseleave=\"mouseHandler(false)\"\r\n-\t\t:style=\"{ backgroundColor: bgColor, color: myColor }\"\r\n-\t\t>\r\n+\t<li v-for=\"todo in todos\" :key=\"todo.id\" >\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n@@ -21,25 +19,12 @@\n \t\tconst state = reactive<{ todos: Todo[] | undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n-\r\n-\t\t//鼠标移入移出改变颜色\r\n-\t\tconst bgColor = ref('white')\r\n-\t\tconst myColor = ref('black')\r\n-\t\tconst mouseHandler = (flag: boolean) => {\r\n-\t\t\tif (flag) {\r\n-\t\t\t\t//鼠标进入\r\n-\t\t\t\tbgColor.value = 'gray'\r\n-\t\t\t\tmyColor.value = 'green'\r\n-\t\t\t} else {\r\n-\t\t\t\tbgColor.value = 'white'\r\n-\t\t\t\tmyColor.value = 'black'\r\n-\t\t\t}\r\n-\t\t}\r\n \t\t\r\n+\t\t\r\n \t\treturn {\r\n-\t\t\ttodos, mouseHandler, bgColor, myColor\r\n+\t\t\ttodos\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n@@ -79,11 +64,11 @@\n li:last-child {\r\n \tborder-bottom: none;\r\n }\r\n \r\n-/* li:hover {\r\n+li:hover {\r\n \tbackground-color: #ddd;\r\n-} */\r\n+}\r\n \r\n li:hover button {\r\n \tdisplay: block;\r\n }\r\n"
+                },
+                {
+                    "date": 1660895018880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n-\t\t<button class=\"btn btn-danger\">删除</button>\r\n+\t\t<button class=\"btn btn-danger\" @click=\"alert('he')\">删除</button>\r\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n"
+                },
+                {
+                    "date": 1660895036030,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n-\t\t<button class=\"btn btn-danger\" @click=\"alert('he')\">删除</button>\r\n+\t\t<button class=\"btn btn-danger\" @click=\"alert('h')\">删除</button>\r\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n"
+                },
+                {
+                    "date": 1660895108883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n-\t\t<button class=\"btn btn-danger\" @click=\"alert('h')\">删除</button>\r\n+\t\t<button class=\"btn btn-danger\" @click=\"deledtTodo(todo.id)\">删除</button>\r\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n@@ -19,10 +19,13 @@\n \t\tconst state = reactive<{ todos: Todo[] | undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n+\t\tconst deledtTodo=(id)=>{\r\n+           console.log(id);\r\n+\t\t   \r\n+\t\t} \r\n \t\t\r\n-\t\t\r\n \t\treturn {\r\n \t\t\ttodos\r\n \t\t}\r\n \t}\r\n"
+                },
+                {
+                    "date": 1660895129574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n-\t\t<button class=\"btn btn-danger\" @click=\"deledtTodo(todo.id)\">删除</button>\r\n+\t\t<button class=\"btn btn-danger\" @click=\"deleteTodo(todo.id)\">删除</button>\r\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n@@ -19,15 +19,15 @@\n \t\tconst state = reactive<{ todos: Todo[] | undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n-\t\tconst deledtTodo=(id)=>{\r\n+\t\tconst deleteTodo=(id)=>{\r\n            console.log(id);\r\n \t\t   \r\n \t\t} \r\n \t\t\r\n \t\treturn {\r\n-\t\t\ttodos\r\n+\t\t\ttodos,deleteTodo\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660895151736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \t\tconst state = reactive<{ todos: Todo[] | undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n-\t\tconst deleteTodo=(id)=>{\r\n+\t\tconst deleteTodo=(id:number)=>{\r\n            console.log(id);\r\n \t\t   \r\n \t\t} \r\n \t\t\r\n"
+                },
+                {
+                    "date": 1660896066430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,16 +13,23 @@\n import { defineComponent, inject } from \"vue\";\r\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n+\tprops:{\r\n+\t\tdeleteTodo:{\r\n+\t\t\ttype:Function,\r\n+            required:true\r\n+\t\t}\r\n+\t},\r\n \tsetup() {\r\n \t\t//传来的数据\r\n \t\tconst state = reactive<{ todos: Todo[] | undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n+\t\t//删除todo\r\n \t\tconst deleteTodo=(id:number)=>{\r\n-           console.log(id);\r\n+           \r\n \t\t   \r\n \t\t} \r\n \t\t\r\n \t\treturn {\r\n"
+                },
+                {
+                    "date": 1660896272683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n <template>\r\n-\t<li v-for=\"todo in todos\" :key=\"todo.id\" >\r\n+\t<li v-for=\"(todo,index) in todos\" :key=\"todo.id\" >\r\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n-\t\t<button class=\"btn btn-danger\" @click=\"deleteTodo(todo.id)\">删除</button>\r\n+\t\t<button class=\"btn btn-danger\" @click=\"delTodo(index)\">删除</button>\r\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n@@ -19,22 +19,25 @@\n \t\t\ttype:Function,\r\n             required:true\r\n \t\t}\r\n \t},\r\n-\tsetup() {\r\n+\tsetup(props) {\r\n \t\t//传来的数据\r\n \t\tconst state = reactive<{ todos: Todo[] | undefined }>({\r\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n \t\t//删除todo\r\n-\t\tconst deleteTodo=(id:number)=>{\r\n-           \r\n+\t\tconst delTodo=(index:number)=>{\r\n+           //提示\r\n+\t\t   if(window.confirm('确定要删除吗？')){\r\n+\t\t\tprops.deleteTodo(index)\r\n+\t\t   }\r\n \t\t   \r\n \t\t} \r\n \t\t\r\n \t\treturn {\r\n-\t\t\ttodos,deleteTodo\r\n+\t\t\ttodos,delTodo\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660896738332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<label>\r\n \t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n-\t\t<button class=\"btn btn-danger\" @click=\"delTodo(index)\">删除</button>\r\n+\t\t<button class=\"btn btn-danger\" @click=\"delTodo(todo.id)\">删除</button>\r\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n"
+                },
+                {
+                    "date": 1660898080043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,12 +26,12 @@\n \t\t\ttodos: inject('todos')\r\n \t\t})\r\n \t\tconst todos = state.todos\r\n \t\t//删除todo\r\n-\t\tconst delTodo=(index:number)=>{\r\n+\t\tconst delTodo=(id:number)=>{\r\n            //提示\r\n \t\t   if(window.confirm('确定要删除吗？')){\r\n-\t\t\tprops.deleteTodo(index)\r\n+\t\t\tprops.deleteTodo(id)\r\n \t\t   }\r\n \t\t   \r\n \t\t} \r\n \t\t\r\n"
+                },
+                {
+                    "date": 1660901000912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,17 @@\n <template>\r\n-\t<li v-for=\"(todo,index) in todos\" :key=\"todo.id\" >\r\n+\t<li >\r\n \t\t<label>\r\n-\t\t\t<input type=\"checkbox\" v-model=\"todo.isTrue\" />\r\n+\t\t\t<input type=\"checkbox\" v-model=\"isTrue\" />\r\n \t\t\t<span>{{ todo.title }}</span>\r\n \t\t</label>\r\n \t\t<button class=\"btn btn-danger\" @click=\"delTodo(todo.id)\">删除</button>\r\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n-import { reactive, ref } from \"vue\";\r\n-import { defineComponent, inject } from \"vue\";\r\n+import { reactive } from \"vue\";\r\n+import { defineComponent, inject,computed } from \"vue\";\r\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tprops:{\r\n@@ -33,11 +33,17 @@\n \t\t\tprops.deleteTodo(id)\r\n \t\t   }\r\n \t\t   \r\n \t\t} \r\n-\t\t\r\n+\t\t//计算属性的方式--来让当前的复选框选中或不选中\r\n+\t\tconst isTrue = computed({\r\n+\t\t\tget(){\r\n+\t\t\t\treturn \r\n+\t\t\t},\r\n+\t\t\tset(){}\r\n+\t\t})\r\n \t\treturn {\r\n-\t\t\ttodos,delTodo\r\n+\t\t\ttodos,delTodo,isTrue\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660901119627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,12 @@\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tprops:{\r\n+\t\ttodo:{\r\n+           type:Object as()=>Todo,//函数返回的是Todo类型\r\n+\t\t   required:true\r\n+\t\t},\r\n \t\tdeleteTodo:{\r\n \t\t\ttype:Function,\r\n             required:true\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1660901172910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,12 +25,9 @@\n \t\t}\r\n \t},\r\n \tsetup(props) {\r\n \t\t//传来的数据\r\n-\t\tconst state = reactive<{ todos: Todo[] | undefined }>({\r\n-\t\t\ttodos: inject('todos')\r\n-\t\t})\r\n-\t\tconst todos = state.todos\r\n+\t\tconst todo = props.todo\r\n \t\t//删除todo\r\n \t\tconst delTodo=(id:number)=>{\r\n            //提示\r\n \t\t   if(window.confirm('确定要删除吗？')){\r\n@@ -45,9 +42,9 @@\n \t\t\t},\r\n \t\t\tset(){}\r\n \t\t})\r\n \t\treturn {\r\n-\t\t\ttodos,delTodo,isTrue\r\n+\t\t\ttodo,delTodo,isTrue\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660901195266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \t\t} \r\n \t\t//计算属性的方式--来让当前的复选框选中或不选中\r\n \t\tconst isTrue = computed({\r\n \t\t\tget(){\r\n-\t\t\t\treturn \r\n+\t\t\t\treturn props.todo.isTrue\r\n \t\t\t},\r\n \t\t\tset(){}\r\n \t\t})\r\n \t\treturn {\r\n"
+                },
+                {
+                    "date": 1660901221922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n \t</li>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n-import { reactive } from \"vue\";\r\n-import { defineComponent, inject,computed } from \"vue\";\r\n+\r\n+import { defineComponent,computed } from \"vue\";\r\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'MyItem',\r\n \tprops:{\r\n"
+                },
+                {
+                    "date": 1660909872824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,12 @@\n \t\t},\r\n \t\tdeleteTodo:{\r\n \t\t\ttype:Function,\r\n             required:true\r\n+\t\t},\r\n+\t\tupdateTodo:{\r\n+\t\t\ttype:Function,\r\n+\t\t\trequired:true\r\n \t\t}\r\n \t},\r\n \tsetup(props) {\r\n \t\t//传来的数据\r\n@@ -39,9 +43,11 @@\n \t\tconst isTrue = computed({\r\n \t\t\tget(){\r\n \t\t\t\treturn props.todo.isTrue\r\n \t\t\t},\r\n-\t\t\tset(){}\r\n+\t\t\tset(value){\r\n+\r\n+\t\t\t}\r\n \t\t})\r\n \t\treturn {\r\n \t\t\ttodo,delTodo,isTrue\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1660909982296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \t\t\tget(){\r\n \t\t\t\treturn props.todo.isTrue\r\n \t\t\t},\r\n \t\t\tset(value){\r\n-\r\n+              props.updateTodo(props.todo,value)\r\n \t\t\t}\r\n \t\t})\r\n \t\treturn {\r\n \t\t\ttodo,delTodo,isTrue\r\n"
+                }
+            ],
+            "date": 1660877221048,
+            "name": "Commit-0",
+            "content": "<template>\r\n\t<li>\r\n\t\t<label>\r\n\t\t\t<input type=\"checkbox\" />\r\n\t\t\t<!-- 如下代码也能实现功能，但是不太推荐，因为有点违反原则，因为修改了props -->\r\n\t\t\t<!-- <input type=\"checkbox\" v-model=\"todo.done\"/> -->\r\n\t\t\t<span></span>\r\n\t\t</label>\r\n\t\t<button class=\"btn btn-danger\">删除</button>\r\n\t</li>\r\n</template>\r\n\r\n<script lang=\"ts\">\r\n\texport default {\r\n\t\r\n\t}\r\n</script>\r\n\r\n<style scoped>\r\n\t/*item*/\r\n\tli {\r\n\t\tlist-style: none;\r\n\t\theight: 36px;\r\n\t\tline-height: 36px;\r\n\t\tpadding: 0 5px;\r\n\t\tborder-bottom: 1px solid #ddd;\r\n\t}\r\n\r\n\tli label {\r\n\t\tfloat: left;\r\n\t\tcursor: pointer;\r\n\t}\r\n\r\n\tli label li input {\r\n\t\tvertical-align: middle;\r\n\t\tmargin-right: 6px;\r\n\t\tposition: relative;\r\n\t\ttop: -1px;\r\n\t}\r\n\r\n\tli button {\r\n\t\tfloat: right;\r\n\t\tdisplay: none;\r\n\t\tmargin-top: 3px;\r\n\t}\r\n\r\n\tli:before {\r\n\t\tcontent: initial;\r\n\t}\r\n\r\n\tli:last-child {\r\n\t\tborder-bottom: none;\r\n\t}\r\n\r\n\tli:hover{\r\n\t\tbackground-color: #ddd;\r\n\t}\r\n\t\r\n\tli:hover button{\r\n\t\tdisplay: block;\r\n\t}\r\n</style>"
+        }
+    ]
+}

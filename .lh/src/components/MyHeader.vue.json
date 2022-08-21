@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/components/MyHeader.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1660877197554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1660877292046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<input type=\"text\" placeholder=\"请输入你的任务名称，按回车键确认\" />\r\n \t</div>\r\n </template>\r\n \r\n-<script lang=\"ts\">\r\n+<script setup lang=\"ts\">\r\n \t\r\n \texport default {\r\n \t\r\n \t}\r\n"
+                },
+                {
+                    "date": 1660877300117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,9 @@\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n \t\r\n-\texport default {\r\n \t\r\n-\t}\r\n </script>\r\n \r\n <style scoped>\r\n \t/*header*/\r\n"
+                },
+                {
+                    "date": 1660879760210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,26 +3,29 @@\n \t\t<input type=\"text\" placeholder=\"请输入你的任务名称，按回车键确认\" />\r\n \t</div>\r\n </template>\r\n \r\n-<script setup lang=\"ts\">\r\n-\t\r\n-\t\r\n+<script lang=\"ts\">\r\n+import { defineComponent } from \"vue\";\r\n+export default defineComponent({\r\n+\tname: 'MyHeader',\r\n+})\r\n+\r\n </script>\r\n \r\n <style scoped>\r\n-\t/*header*/\r\n-\t.todo-header input {\r\n-\t\twidth: 560px;\r\n-\t\theight: 28px;\r\n-\t\tfont-size: 14px;\r\n-\t\tborder: 1px solid #ccc;\r\n-\t\tborder-radius: 4px;\r\n-\t\tpadding: 4px 7px;\r\n-\t}\r\n+/*header*/\r\n+.todo-header input {\r\n+\twidth: 560px;\r\n+\theight: 28px;\r\n+\tfont-size: 14px;\r\n+\tborder: 1px solid #ccc;\r\n+\tborder-radius: 4px;\r\n+\tpadding: 4px 7px;\r\n+}\r\n \r\n-\t.todo-header input:focus {\r\n-\t\toutline: none;\r\n-\t\tborder-color: rgba(82, 168, 236, 0.8);\r\n-\t\tbox-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);\r\n-\t}\r\n+.todo-header input:focus {\r\n+\toutline: none;\r\n+\tborder-color: rgba(82, 168, 236, 0.8);\r\n+\tbox-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);\r\n+}\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1660889229610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,11 @@\n <script lang=\"ts\">\r\n import { defineComponent } from \"vue\";\r\n export default defineComponent({\r\n \tname: 'MyHeader',\r\n+\tprops:['addTodo'],\r\n+\r\n+\t\r\n })\r\n \r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1660889278623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,14 @@\n <script lang=\"ts\">\r\n import { defineComponent } from \"vue\";\r\n export default defineComponent({\r\n \tname: 'MyHeader',\r\n-\tprops:['addTodo'],\r\n-\r\n+\tprops:{\r\n+\t\taddTodo:{\r\n+\t\t\ttype:Function,\r\n+\t\t\trequired:true,//必须\r\n+\t\t}\r\n+\t}\r\n \t\r\n })\r\n \r\n </script>\r\n"
+                },
+                {
+                    "date": 1660889934916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,37 @@\n <template>\r\n \t<div class=\"todo-header\">\r\n-\t\t<input type=\"text\" placeholder=\"请输入你的任务名称，按回车键确认\" />\r\n+\t\t<input type=\"text\" placeholder=\"请输入你的任务名称，按回车键确认\" v-model=\"title\" @keyup.enter=\"add\"/>\r\n \t</div>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n-import { defineComponent } from \"vue\";\r\n+import { defineComponent ,ref} from \"vue\";\r\n export default defineComponent({\r\n \tname: 'MyHeader',\r\n \tprops:{\r\n \t\taddTodo:{\r\n \t\t\ttype:Function,\r\n \t\t\trequired:true,//必须\r\n \t\t}\r\n+\t},\r\n+\tsetup(props){\r\n+\t\tconst title = ref('')\r\n+\t\t//回车的事件的回调函数，用来添加数据\r\n+\t\tconst add=()=>{\r\n+         const text = title.value\r\n+\t\t if(!text.trim()) return\r\n+\t\t const todo = {\r\n+\t\t\tid:Date.now(),\r\n+\t\t\ttitle:text,\r\n+\t\t\tisTrue:false\r\n+\t\t }\r\n+\t\t //调用addTodo\r\n+\t\t props.addTodo(todo)\r\n+\t\t}\r\n+\t\treturn{\r\n+\t\t\ttitle,add\r\n+\t\t}\r\n \t}\r\n \t\r\n })\r\n \r\n"
+                },
+                {
+                    "date": 1660890141004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,14 +26,15 @@\n \t\t\tisTrue:false\r\n \t\t }\r\n \t\t //调用addTodo\r\n \t\t props.addTodo(todo)\r\n+\t\t //清空文本框\r\n+\t\t title.value = ''\r\n \t\t}\r\n \t\treturn{\r\n \t\t\ttitle,add\r\n \t\t}\r\n \t}\r\n-\t\r\n })\r\n \r\n </script>\r\n \r\n"
+                }
+            ],
+            "date": 1660877197554,
+            "name": "Commit-0",
+            "content": "<template>\r\n\t<div class=\"todo-header\">\r\n\t\t<input type=\"text\" placeholder=\"请输入你的任务名称，按回车键确认\" />\r\n\t</div>\r\n</template>\r\n\r\n<script lang=\"ts\">\r\n\t\r\n\texport default {\r\n\t\r\n\t}\r\n</script>\r\n\r\n<style scoped>\r\n\t/*header*/\r\n\t.todo-header input {\r\n\t\twidth: 560px;\r\n\t\theight: 28px;\r\n\t\tfont-size: 14px;\r\n\t\tborder: 1px solid #ccc;\r\n\t\tborder-radius: 4px;\r\n\t\tpadding: 4px 7px;\r\n\t}\r\n\r\n\t.todo-header input:focus {\r\n\t\toutline: none;\r\n\t\tborder-color: rgba(82, 168, 236, 0.8);\r\n\t\tbox-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);\r\n\t}\r\n</style>"
+        }
+    ]
+}

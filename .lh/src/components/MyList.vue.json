@@ -1,0 +1,66 @@
+{
+    "sourceFile": "src/components/MyList.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1660877279864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1660877310016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,8 @@\n \r\n <script setup lang=\"ts\">\r\n \timport MyItem from './MyItem'\r\n \r\n-\texport default {\r\n-\t\t\r\n-\t}\r\n </script>\r\n \r\n <style scoped>\r\n \t/*main*/\r\n"
+                },
+                {
+                    "date": 1660879465973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,29 +1,36 @@\n <template>\r\n \t<ul class=\"todo-main\">\r\n-\t\t<MyItem/>\r\n+\t\t<MyItem />\r\n \t</ul>\r\n </template>\r\n \r\n-<script setup lang=\"ts\">\r\n-\timport MyItem from './MyItem'\r\n+<script lang=\"ts\">\r\n+import { defineComponent } from \"vue\";\r\n+import MyItem from './MyItem.vue'\r\n+export default defineComponent({\r\n+\tname: 'myList',\r\n+\tcomponents: { MyItem },\r\n+\tprops: ['todos']\r\n+})\r\n \r\n+\r\n </script>\r\n \r\n <style scoped>\r\n-\t/*main*/\r\n-\t.todo-main {\r\n-\t\tmargin-left: 0px;\r\n-\t\tborder: 1px solid #ddd;\r\n-\t\tborder-radius: 2px;\r\n-\t\tpadding: 0px;\r\n-\t}\r\n+/*main*/\r\n+.todo-main {\r\n+\tmargin-left: 0px;\r\n+\tborder: 1px solid #ddd;\r\n+\tborder-radius: 2px;\r\n+\tpadding: 0px;\r\n+}\r\n \r\n-\t.todo-empty {\r\n-\t\theight: 40px;\r\n-\t\tline-height: 40px;\r\n-\t\tborder: 1px solid #ddd;\r\n-\t\tborder-radius: 2px;\r\n-\t\tpadding-left: 5px;\r\n-\t\tmargin-top: 10px;\r\n-\t}\r\n+.todo-empty {\r\n+\theight: 40px;\r\n+\tline-height: 40px;\r\n+\tborder: 1px solid #ddd;\r\n+\tborder-radius: 2px;\r\n+\tpadding-left: 5px;\r\n+\tmargin-top: 10px;\r\n+}\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1660879600888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<ul class=\"todo-main\">\r\n-\t\t<MyItem />\r\n+\t\t<MyItem v-for=\"(todo,index) in todos\" :key=\"todo.id\"/>\r\n \t</ul>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n"
+                },
+                {
+                    "date": 1660880044224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<ul class=\"todo-main\">\r\n-\t\t<MyItem v-for=\"(todo,index) in todos\" :key=\"todo.id\"/>\r\n+\t\t<MyItem :todos=\"todos\"/>\r\n \t</ul>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n"
+                },
+                {
+                    "date": 1660887016979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<ul class=\"todo-main\">\r\n-\t\t<MyItem :todos=\"todos\"/>\r\n+\t\t<MyItem/>\r\n \t</ul>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n@@ -9,9 +9,8 @@\n import MyItem from './MyItem.vue'\r\n export default defineComponent({\r\n \tname: 'myList',\r\n \tcomponents: { MyItem },\r\n-\tprops: ['todos']\r\n })\r\n \r\n \r\n </script>\r\n"
+                },
+                {
+                    "date": 1660895952071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<ul class=\"todo-main\">\r\n-\t\t<MyItem/>\r\n+\t\t<MyItem :deleteTodo=\"deleteTodo\"/>\r\n \t</ul>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n@@ -9,8 +9,9 @@\n import MyItem from './MyItem.vue'\r\n export default defineComponent({\r\n \tname: 'myList',\r\n \tcomponents: { MyItem },\r\n+\tprops:['deleteTodo']\r\n })\r\n \r\n \r\n </script>\r\n"
+                },
+                {
+                    "date": 1660900976666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<ul class=\"todo-main\">\r\n-\t\t<MyItem :deleteTodo=\"deleteTodo\"/>\r\n+\t\t<MyItem :deleteTodo=\"deleteTodo\"  v-for=\"(todo,index) in todos\" :key=\"todo.id\"/>\r\n \t</ul>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n@@ -9,9 +9,9 @@\n import MyItem from './MyItem.vue'\r\n export default defineComponent({\r\n \tname: 'myList',\r\n \tcomponents: { MyItem },\r\n-\tprops:['deleteTodo']\r\n+\tprops:['todos','deleteTodo']\r\n })\r\n \r\n \r\n </script>\r\n"
+                },
+                {
+                    "date": 1660901416069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,16 @@\n import MyItem from './MyItem.vue'\r\n export default defineComponent({\r\n \tname: 'myList',\r\n \tcomponents: { MyItem },\r\n-\tprops:['todos','deleteTodo']\r\n+\tprops:['todos','deleteTodo'],\r\n+\tsetup(props){\r\n+\t\tconst todos = props.todos\r\n+\t\treturn{\r\n+\t\t\ttodos\r\n+\t\t}\r\n+\t}\r\n+\t\r\n })\r\n \r\n \r\n </script>\r\n"
+                },
+                {
+                    "date": 1660901537762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<ul class=\"todo-main\">\r\n-\t\t<MyItem :deleteTodo=\"deleteTodo\"  v-for=\"(todo,index) in todos\" :key=\"todo.id\"/>\r\n+\t\t<MyItem :deleteTodo=\"deleteTodo\"  v-for=\"(todo,index) in todos\" :key=\"todo.id\" :todo=\"todo\"/>\r\n \t</ul>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n"
+                },
+                {
+                    "date": 1660904985836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n export default defineComponent({\r\n \tname: 'myList',\r\n \tcomponents: { MyItem },\r\n \tprops:['todos','deleteTodo'],\r\n-\tsetup(props){\r\n+\t/* setup(props){\r\n \t\tconst todos = props.todos\r\n \t\treturn{\r\n \t\t\ttodos\r\n \t\t}\r\n-\t}\r\n+\t} */\r\n \t\r\n })\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1660906472608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,15 +10,8 @@\n export default defineComponent({\r\n \tname: 'myList',\r\n \tcomponents: { MyItem },\r\n \tprops:['todos','deleteTodo'],\r\n-\t/* setup(props){\r\n-\t\tconst todos = props.todos\r\n-\t\treturn{\r\n-\t\t\ttodos\r\n-\t\t}\r\n-\t} */\r\n-\t\r\n })\r\n \r\n \r\n </script>\r\n"
+                },
+                {
+                    "date": 1660909851606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<ul class=\"todo-main\">\r\n-\t\t<MyItem :deleteTodo=\"deleteTodo\"  v-for=\"(todo,index) in todos\" :key=\"todo.id\" :todo=\"todo\"/>\r\n+\t\t<MyItem :deleteTodo=\"deleteTodo\"  v-for=\"(todo,index) in todos\" :key=\"todo.id\" :todo=\"todo\" :updateTodo=\"updateTodo\"/>\r\n \t</ul>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n@@ -9,9 +9,9 @@\n import MyItem from './MyItem.vue'\r\n export default defineComponent({\r\n \tname: 'myList',\r\n \tcomponents: { MyItem },\r\n-\tprops:['todos','deleteTodo'],\r\n+\tprops:['todos','deleteTodo','updateTodo'],\r\n })\r\n \r\n \r\n </script>\r\n"
+                }
+            ],
+            "date": 1660877279864,
+            "name": "Commit-0",
+            "content": "<template>\r\n\t<ul class=\"todo-main\">\r\n\t\t<MyItem/>\r\n\t</ul>\r\n</template>\r\n\r\n<script setup lang=\"ts\">\r\n\timport MyItem from './MyItem'\r\n\r\n\texport default {\r\n\t\t\r\n\t}\r\n</script>\r\n\r\n<style scoped>\r\n\t/*main*/\r\n\t.todo-main {\r\n\t\tmargin-left: 0px;\r\n\t\tborder: 1px solid #ddd;\r\n\t\tborder-radius: 2px;\r\n\t\tpadding: 0px;\r\n\t}\r\n\r\n\t.todo-empty {\r\n\t\theight: 40px;\r\n\t\tline-height: 40px;\r\n\t\tborder: 1px solid #ddd;\r\n\t\tborder-radius: 2px;\r\n\t\tpadding-left: 5px;\r\n\t\tmargin-top: 10px;\r\n\t}\r\n</style>"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "tsconfig.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1660894372709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1660894446940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {\n   \"compilerOptions\": {\n     \"target\": \"esnext\",\n     \"module\": \"esnext\",\n-    \"strict\": true,\n+    \"strict\": false,\n     \"noImplicitAny\": false,\n     \"jsx\": \"preserve\",\n     \"moduleResolution\": \"node\",\n     \"skipLibCheck\": true,\n"
+                },
+                {
+                    "date": 1660894464042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n {\n   \"compilerOptions\": {\n     \"target\": \"esnext\",\n     \"module\": \"esnext\",\n-    \"strict\": false,\n-    \"noImplicitAny\": false,\n+    \"strict\": true,\n     \"jsx\": \"preserve\",\n     \"moduleResolution\": \"node\",\n     \"skipLibCheck\": true,\n     \"esModuleInterop\": true,\n"
+                }
+            ],
+            "date": 1660894372709,
+            "name": "Commit-0",
+            "content": "{\n  \"compilerOptions\": {\n    \"target\": \"esnext\",\n    \"module\": \"esnext\",\n    \"strict\": true,\n    \"noImplicitAny\": false,\n    \"jsx\": \"preserve\",\n    \"moduleResolution\": \"node\",\n    \"skipLibCheck\": true,\n    \"esModuleInterop\": true,\n    \"allowSyntheticDefaultImports\": true,\n    \"forceConsistentCasingInFileNames\": true,\n    \"useDefineForClassFields\": true,\n    \"sourceMap\": true,\n    \"baseUrl\": \".\",\n    \"types\": [\n      \"webpack-env\"\n    ],\n    \"paths\": {\n      \"@/*\": [\n        \"src/*\"\n      ]\n    },\n    \"lib\": [\n      \"esnext\",\n      \"dom\",\n      \"dom.iterable\",\n      \"scripthost\"\n    ]\n  },\n  \"include\": [\n    \"src/**/*.ts\",\n    \"src/**/*.tsx\",\n    \"src/**/*.vue\",\n    \"tests/**/*.ts\",\n    \"tests/**/*.tsx\"\n  ],\n  \"exclude\": [\n    \"node_modules\"\n  ]\n}\n"
+        }
+    ]
+}

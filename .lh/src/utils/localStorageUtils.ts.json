@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/utils/localStorageUtils.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1661058914299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1661058914299,
+            "name": "Commit-0",
+            "content": "import { Todo } from \"../types/todo\";\r\n//保存数据到浏览器的缓存中\r\nexport function saveTodos(todos:Todo[]){\r\n    localStorage.setItem('todos_key',JSON.stringify(todos))\r\n}\r\n//从浏览器的缓存中读取数据。\r\nexport function readTodos():Todo[]{\r\n    return JSON.parse(localStorage.getItem('todos_key')||'[]')\r\n}"
+        }
+    ]
+}

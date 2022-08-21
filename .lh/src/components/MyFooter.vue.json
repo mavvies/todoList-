@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/components/MyFooter.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1660877083873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1660877327006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-\t<div class=\"todo-footer\" v-show=\"total\">\r\n+\t<div class=\"todo-footer\" >\r\n \t\t<label>\r\n \t\t\t<!-- <input type=\"checkbox\" :checked=\"isAll\" @change=\"checkAll\"/> -->\r\n \t\t\t<input type=\"checkbox\"/>\r\n \t\t</label>\r\n@@ -10,12 +10,10 @@\n \t\t<button class=\"btn btn-danger\" >清除已完成任务</button>\r\n \t</div>\r\n </template>\r\n \r\n-<script lang=\"ts\">\r\n-\texport default {\r\n-\t\t\r\n-\t}\r\n+<script setup lang=\"ts\">\r\n+\t\r\n </script>\r\n \r\n <style scoped>\r\n \t/*footer*/\r\n"
+                },
+                {
+                    "date": 1660877345665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \t\t\t<!-- <input type=\"checkbox\" :checked=\"isAll\" @change=\"checkAll\"/> -->\r\n \t\t\t<input type=\"checkbox\"/>\r\n \t\t</label>\r\n \t\t<span>\r\n-\t\t\t<span>已完成</span> / 全部{{total}}\r\n+\t\t\t<span>已完成</span> / 全部3\r\n \t\t</span>\r\n \t\t<button class=\"btn btn-danger\" >清除已完成任务</button>\r\n \t</div>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1660879812040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,44 +1,47 @@\n <template>\r\n-\t<div class=\"todo-footer\" >\r\n+\t<div class=\"todo-footer\">\r\n \t\t<label>\r\n \t\t\t<!-- <input type=\"checkbox\" :checked=\"isAll\" @change=\"checkAll\"/> -->\r\n-\t\t\t<input type=\"checkbox\"/>\r\n+\t\t\t<input type=\"checkbox\" />\r\n \t\t</label>\r\n \t\t<span>\r\n-\t\t\t<span>已完成</span> / 全部3\r\n+\t\t\t<span>已完成0</span> / 全部3\r\n \t\t</span>\r\n-\t\t<button class=\"btn btn-danger\" >清除已完成任务</button>\r\n+\t\t<button class=\"btn btn-danger\">清除已完成任务</button>\r\n \t</div>\r\n </template>\r\n \r\n-<script setup lang=\"ts\">\r\n-\t\r\n+<script lang=\"ts\">\r\n+import { defineComponent } from \"vue\";\r\n+export default defineComponent({\r\n+\tname: 'Myfooter',\r\n+})\r\n </script>\r\n \r\n <style scoped>\r\n-\t/*footer*/\r\n-\t.todo-footer {\r\n-\t\theight: 40px;\r\n-\t\tline-height: 40px;\r\n-\t\tpadding-left: 6px;\r\n-\t\tmargin-top: 5px;\r\n-\t}\r\n+/*footer*/\r\n+.todo-footer {\r\n+\theight: 40px;\r\n+\tline-height: 40px;\r\n+\tpadding-left: 6px;\r\n+\tmargin-top: 5px;\r\n+}\r\n \r\n-\t.todo-footer label {\r\n-\t\tdisplay: inline-block;\r\n-\t\tmargin-right: 20px;\r\n-\t\tcursor: pointer;\r\n-\t}\r\n+.todo-footer label {\r\n+\tdisplay: inline-block;\r\n+\tmargin-right: 20px;\r\n+\tcursor: pointer;\r\n+}\r\n \r\n-\t.todo-footer label input {\r\n-\t\tposition: relative;\r\n-\t\ttop: -1px;\r\n-\t\tvertical-align: middle;\r\n-\t\tmargin-right: 5px;\r\n-\t}\r\n+.todo-footer label input {\r\n+\tposition: relative;\r\n+\ttop: -1px;\r\n+\tvertical-align: middle;\r\n+\tmargin-right: 5px;\r\n+}\r\n \r\n-\t.todo-footer button {\r\n-\t\tfloat: right;\r\n-\t\tmargin-top: 5px;\r\n-\t}\r\n+.todo-footer button {\r\n+\tfloat: right;\r\n+\tmargin-top: 5px;\r\n+}\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1660910513090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,16 @@\n </template>\r\n \r\n <script lang=\"ts\">\r\n import { defineComponent } from \"vue\";\r\n+import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'Myfooter',\r\n+\tprops:{\r\n+\t\ttodos:{\r\n+\t\t\ttype:Array as()=>Todo[]\r\n+\t\t}\r\n+\t}\r\n })\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1660910676572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,23 +4,34 @@\n \t\t\t<!-- <input type=\"checkbox\" :checked=\"isAll\" @change=\"checkAll\"/> -->\r\n \t\t\t<input type=\"checkbox\" />\r\n \t\t</label>\r\n \t\t<span>\r\n-\t\t\t<span>已完成0</span> / 全部3\r\n+\t\t\t<span>已完成{{count}}</span> / 全部{{todos.length}}\r\n \t\t</span>\r\n \t\t<button class=\"btn btn-danger\">清除已完成任务</button>\r\n \t</div>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n-import { defineComponent } from \"vue\";\r\n+import { defineComponent ,computed} from \"vue\";\r\n import { Todo } from \"../types/todo\";\r\n export default defineComponent({\r\n \tname: 'Myfooter',\r\n \tprops:{\r\n \t\ttodos:{\r\n-\t\t\ttype:Array as()=>Todo[]\r\n+\t\t\ttype:Array as()=>Todo[],\r\n+\t\t\trequired:true\r\n \t\t}\r\n+\t},\r\n+\tsetup(){\r\n+\t\tconst count = computed(()=>{\r\n+\t\t\tget(){\r\n+\r\n+\t\t\t}\r\n+\t\t})\r\n+\t\treturn{\r\n+\t\t\tcount\r\n+\t\t}\r\n \t}\r\n })\r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1660910778007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,13 +21,11 @@\n \t\t\ttype:Array as()=>Todo[],\r\n \t\t\trequired:true\r\n \t\t}\r\n \t},\r\n-\tsetup(){\r\n+\tsetup(props){\r\n \t\tconst count = computed(()=>{\r\n-\t\t\tget(){\r\n-\r\n-\t\t\t}\r\n+\t\t\treturn props.todos.reduce((pre,todo,index)=>pre+(todo.isTrue?1:0),0)\r\n \t\t})\r\n \t\treturn{\r\n \t\t\tcount\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1660914577376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n \t<div class=\"todo-footer\">\r\n \t\t<label>\r\n \t\t\t<!-- <input type=\"checkbox\" :checked=\"isAll\" @change=\"checkAll\"/> -->\r\n-\t\t\t<input type=\"checkbox\" />\r\n+\t\t\t<input type=\"checkbox\" v-model=\"checkedAll\"/>\r\n \t\t</label>\r\n \t\t<span>\r\n \t\t\t<span>已完成{{count}}</span> / 全部{{todos.length}}\r\n \t\t</span>\r\n@@ -22,13 +22,16 @@\n \t\t\trequired:true\r\n \t\t}\r\n \t},\r\n \tsetup(props){\r\n+\t\t//已完成项目计算操作\r\n \t\tconst count = computed(()=>{\r\n \t\t\treturn props.todos.reduce((pre,todo,index)=>pre+(todo.isTrue?1:0),0)\r\n \t\t})\r\n+\t\t//全选/全不选的计算操作\r\n+\t\tconst checkedAll\r\n \t\treturn{\r\n-\t\t\tcount\r\n+\t\t\tcount,checkedAll\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                },
+                {
+                    "date": 1660920054729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,14 @@\n \t\tconst count = computed(()=>{\r\n \t\t\treturn props.todos.reduce((pre,todo,index)=>pre+(todo.isTrue?1:0),0)\r\n \t\t})\r\n \t\t//全选/全不选的计算操作\r\n-\t\tconst checkedAll\r\n+\t\tconst checkedAll = computed(()=>{\r\n+\t\t\tget(){\r\n+\t\t\t\treturn count.value\r\n+\t\t\t},\r\n+\t\t\tset(val){}\r\n+\t\t})\r\n \t\treturn{\r\n \t\t\tcount,checkedAll\r\n \t\t}\r\n \t}\r\n"
+                },
+                {
+                    "date": 1660988328724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,22 +19,29 @@\n \tprops:{\r\n \t\ttodos:{\r\n \t\t\ttype:Array as()=>Todo[],\r\n \t\t\trequired:true\r\n+\t\t},\r\n+\t\tcheckedAll:{\r\n+\t\t\ttype:Function,\r\n+\t\t\trequired:true\r\n \t\t}\r\n \t},\r\n \tsetup(props){\r\n \t\t//已完成项目计算操作\r\n \t\tconst count = computed(()=>{\r\n \t\t\treturn props.todos.reduce((pre,todo,index)=>pre+(todo.isTrue?1:0),0)\r\n \t\t})\r\n \t\t//全选/全不选的计算操作\r\n-\t\tconst checkedAll = computed(()=>{\r\n+\t\tconst checkedAll = computed({\r\n \t\t\tget(){\r\n-\t\t\t\treturn count.value\r\n+\t\t\t\treturn count.value>0&&props.todos.length===count.value\r\n \t\t\t},\r\n-\t\t\tset(val){}\r\n+\t\t\tset(value){\r\n+\t\t\t\tprops.checkedAll(value)\r\n+\t\t\t}\r\n \t\t})\r\n+\t\t\r\n \t\treturn{\r\n \t\t\tcount,checkedAll\r\n \t\t}\r\n \t}\r\n"
+                },
+                {
+                    "date": 1661049585226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \t\t</label>\r\n \t\t<span>\r\n \t\t\t<span>已完成{{count}}</span> / 全部{{todos.length}}\r\n \t\t</span>\r\n-\t\t<button class=\"btn btn-danger\">清除已完成任务</button>\r\n+\t\t<button class=\"btn btn-danger\" @click=\"clearTodo\">清除已完成任务</button>\r\n \t</div>\r\n </template>\r\n \r\n <script lang=\"ts\">\r\n@@ -23,8 +23,12 @@\n \t\t},\r\n \t\tcheckedAll:{\r\n \t\t\ttype:Function,\r\n \t\t\trequired:true\r\n+\t\t},\r\n+\t\tclearAllTruetodo:{\r\n+\t\t\ttype:Function,\r\n+\t\t\trequired:true\r\n \t\t}\r\n \t},\r\n \tsetup(props){\r\n \t\t//已完成项目计算操作\r\n@@ -39,11 +43,15 @@\n \t\t\tset(value){\r\n \t\t\t\tprops.checkedAll(value)\r\n \t\t\t}\r\n \t\t})\r\n+\t\t//点击清除已完成任务\r\n+\t\tconst clearTodo = ()=>{\r\n+\t\t\tprops.clearAllTruetodo()\r\n+\t\t}\r\n \t\t\r\n \t\treturn{\r\n-\t\t\tcount,checkedAll\r\n+\t\t\tcount,checkedAll,clearTodo\r\n \t\t}\r\n \t}\r\n })\r\n </script>\r\n"
+                }
+            ],
+            "date": 1660877083873,
+            "name": "Commit-0",
+            "content": "<template>\r\n\t<div class=\"todo-footer\" v-show=\"total\">\r\n\t\t<label>\r\n\t\t\t<!-- <input type=\"checkbox\" :checked=\"isAll\" @change=\"checkAll\"/> -->\r\n\t\t\t<input type=\"checkbox\"/>\r\n\t\t</label>\r\n\t\t<span>\r\n\t\t\t<span>已完成</span> / 全部{{total}}\r\n\t\t</span>\r\n\t\t<button class=\"btn btn-danger\" >清除已完成任务</button>\r\n\t</div>\r\n</template>\r\n\r\n<script lang=\"ts\">\r\n\texport default {\r\n\t\t\r\n\t}\r\n</script>\r\n\r\n<style scoped>\r\n\t/*footer*/\r\n\t.todo-footer {\r\n\t\theight: 40px;\r\n\t\tline-height: 40px;\r\n\t\tpadding-left: 6px;\r\n\t\tmargin-top: 5px;\r\n\t}\r\n\r\n\t.todo-footer label {\r\n\t\tdisplay: inline-block;\r\n\t\tmargin-right: 20px;\r\n\t\tcursor: pointer;\r\n\t}\r\n\r\n\t.todo-footer label input {\r\n\t\tposition: relative;\r\n\t\ttop: -1px;\r\n\t\tvertical-align: middle;\r\n\t\tmargin-right: 5px;\r\n\t}\r\n\r\n\t.todo-footer button {\r\n\t\tfloat: right;\r\n\t\tmargin-top: 5px;\r\n\t}\r\n</style>"
+        }
+    ]
+}
